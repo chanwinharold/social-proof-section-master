@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
+* { margin: 0; }
+
+// Variables
+$mainTxColor: hsl(300, 43%, 22%);
+$lightMainTxColor: hsl(333, 80%, 67%);
+$secondaryTxColor:  hsl(303, 10%, 53%);
+$bodyBgColor: white;
+$SecondaryBodyBgColor: hsl(300, 24%, 96%);
+$cardBgColor: hsl(300, 43%, 22%);
+
+// Mixin
+@mixin flexbox($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+body {
+    min-height: 100vh;
+    @include flexbox(column, center, center);
+    background-color: $bodyBgColor;
+    font-family: "League Spartan", sans-serif;
+}
+
+.component {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin: 5rem;
+
+    @media screen and (max-width: 768px) {
+        max-width: 375px;
+        @include flexbox(column, center, center);
+    }
+
+    &__header {
+        grid-row: 1;
+        grid-column: 2 / 4;
+        width: 80%;
+        @include flexbox(column, flex-start, flex-start);
+        gap: 20px;
+
+        &__title {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: $mainTxColor;
+
+            @media screen and (max-width: 768px) {
+                text-align: center;
+            }
+        }
+        &__content {
+            font-size: 1em;
+            color: $secondaryTxColor;
+            line-height: 1.5em;
+
+            @media screen and (max-width: 768px) {
+                text-align: center;
+            }
+        }
+    }
+
+    &__rate {
+        grid-row: 1;
+        grid-column: 4 / 6;
+        @include flexbox(column, flex-start, flex-start);
+        gap: 15px;
+
+        @media screen and (max-width: 768px) {
+            @include flexbox(column, center, center);
+        }
+
+        &__element {
+            width: 90%;
+            @include flexbox(row, flex-start, center);
+            gap: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: hsla(303, 10%, 53%, 0.1);
+
+            @media screen and (max-width: 768px) {
+                @include flexbox(column, center, center);
+                text-align: center;
+            }
+
+            &__content {
+                color: $mainTxColor;
+                font-weight: 700;
+            }
+        }
+    }
+    .element {
+        &__one {
+            margin-left: 0;
+            @media screen and (max-width: 768px) {
+                margin: 0;
+            }
+        }
+        &__two {
+            margin-left: 2.5rem;
+            @media screen and (max-width: 768px) {
+                margin: 0;
+            }
+        }
+        &__three {
+            margin-left: 5rem;
+            @media screen and (max-width: 768px) {
+                margin: 0;
+            }
+        }
+    }
+
+    &__cards {
+        grid-row: 2;
+        grid-column: 1 / 7;
+        &__element {
+            width: 100%;
+            height: 200px;
+            @include flexbox(column, center, flex-start);
+            gap: 15px;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: $cardBgColor;
+
+            @media screen and (max-width: 768px) {
+                @include flexbox(column, flex-start, flex-start);
+                max-width: 250px;
+                height: auto;
+            }
+
+            &__head {
+                @include flexbox(row, center, center);
+                gap: 15px;
+                &__image {
+                    width: 50px;
+                    border-radius: 50%;
+                }
+                &__info {
+                    @include flexbox(column, center, flex-start);
+                    gap: 5px;
+                    &__name {
+                        font-size: 1em;
+                        color: white;
+                    }
+                    &__status {
+                        font-size: 0.8em;
+                        color: $lightMainTxColor;
+                    }
+                }
+            }
+            &__content {
+                color: white;
+            }
+        }
+    }
+    .card {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        gap: 60px;
+        margin-top: 30px;
+
+        @media screen and (max-width: 768px) {
+            @include flexbox(column, center, center);
+            gap: 15px;
+        }
+
+        &__one {
+            grid-column: 2;
+            margin-top: 0;
+            @media screen and (max-width: 768px) {
+                margin-top: 0;
+            }
+        }
+        &__two {
+            grid-column: 3;
+            margin-top: 1rem;
+            @media screen and (max-width: 768px) {
+                margin-top: 0;
+            }
+        }
+        &__three {
+            grid-column: 4;
+            margin-top: 2rem;
+            @media screen and (max-width: 768px) {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    a {
+        color: hsl(228, 45%, 44%);
+    }
+}
+
