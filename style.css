@@ -5,131 +5,72 @@
 
 body {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-content: start;
   background-color: white;
   font-family: "League Spartan", sans-serif;
 }
 
 .component {
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  margin: 5rem;
-}
-@media screen and (max-width: 768px) {
-  .component {
-    max-width: 375px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: max-content max-content;
+  gap: 2rem;
+  padding: 2rem;
 }
 .component__header {
+  grid-column: 1;
   grid-row: 1;
-  grid-column: 2/4;
-  width: 80%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 20px;
+  gap: 1rem;
 }
 .component__header__title {
   font-size: 2.5em;
   font-weight: 700;
   color: hsl(300, 43%, 22%);
 }
-@media screen and (max-width: 768px) {
-  .component__header__title {
-    text-align: center;
-  }
-}
 .component__header__content {
   font-size: 1em;
   color: hsl(303, 10%, 53%);
   line-height: 1.5em;
 }
-@media screen and (max-width: 768px) {
-  .component__header__content {
-    text-align: center;
-  }
-}
 .component__rate {
+  grid-column: 2;
   grid-row: 1;
-  grid-column: 4/6;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 15px;
-}
-@media screen and (max-width: 768px) {
-  .component__rate {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+  gap: 1rem;
 }
 .component__rate__element {
-  width: 90%;
+  transition: box-shadow 500ms ease;
+  min-height: 4rem;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  gap: 20px;
-  padding: 20px;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 10px;
   background-color: hsla(303, 10%, 53%, 0.1);
 }
-@media screen and (max-width: 768px) {
-  .component__rate__element {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
+.component__rate__element:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
 }
 .component__rate__element__content {
   color: hsl(300, 43%, 22%);
   font-weight: 700;
 }
-.component .element__one {
-  margin-left: 0;
-}
-@media screen and (max-width: 768px) {
-  .component .element__one {
-    margin: 0;
-  }
-}
-.component .element__two {
-  margin-left: 2.5rem;
-}
-@media screen and (max-width: 768px) {
-  .component .element__two {
-    margin: 0;
-  }
-}
-.component .element__three {
-  margin-left: 5rem;
-}
-@media screen and (max-width: 768px) {
-  .component .element__three {
-    margin: 0;
-  }
+.component__rate__element__stars {
+  display: flex;
+  gap: 0.5rem;
 }
 .component__cards {
+  grid-column: 1/3;
   grid-row: 2;
-  grid-column: 1/7;
+  display: flex;
+  gap: 1rem;
 }
 .component__cards__element {
-  width: 100%;
-  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -138,16 +79,10 @@ body {
   padding: 20px;
   border-radius: 5px;
   background-color: hsl(300, 43%, 22%);
+  transition: box-shadow 500ms ease;
 }
-@media screen and (max-width: 768px) {
-  .component__cards__element {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    max-width: 250px;
-    height: auto;
-  }
+.component__cards__element:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .component__cards__element__head {
   display: flex;
@@ -177,56 +112,82 @@ body {
 }
 .component__cards__element__content {
   color: white;
-}
-.component .card {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  gap: 60px;
-  margin-top: 30px;
-}
-@media screen and (max-width: 768px) {
-  .component .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-  }
-}
-.component .card__one {
-  grid-column: 2;
-  margin-top: 0;
-}
-@media screen and (max-width: 768px) {
-  .component .card__one {
-    margin-top: 0;
-  }
-}
-.component .card__two {
-  grid-column: 3;
-  margin-top: 1rem;
-}
-@media screen and (max-width: 768px) {
-  .component .card__two {
-    margin-top: 0;
-  }
-}
-.component .card__three {
-  grid-column: 4;
-  margin-top: 2rem;
-}
-@media screen and (max-width: 768px) {
-  .component .card__three {
-    margin-top: 0;
-  }
+  line-height: 1.5rem;
 }
 
-.attribution {
-  font-size: 11px;
-  text-align: center;
+@media screen and (width < 615px) {
+  .component {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 2rem;
+    padding: 1rem;
+  }
+  .component__header {
+    text-align: center;
+  }
+  .component__cards, .component__rate__element {
+    flex-direction: column;
+  }
 }
-.attribution a {
-  color: hsl(228, 45%, 44%);
+@media screen and (615px < width < 768px) {
+  .component {
+    grid-template-rows: max-content max-content;
+  }
+  .component__cards {
+    flex-direction: column;
+  }
+}
+@media screen and (width > 768px) {
+  .component {
+    padding: 3rem;
+  }
+  .element__one {
+    align-self: start;
+  }
+  .element__two {
+    align-self: center;
+  }
+  .element__three {
+    align-self: end;
+  }
+  .card__one {
+    margin-top: 0;
+  }
+  .card__two {
+    margin-top: 1rem;
+    margin-bottom: -1rem;
+  }
+  .card__three {
+    margin-top: 2rem;
+    margin-bottom: -2rem;
+  }
+}
+.component__rate__element__stars img {
+  animation: grow-and-shrunk 1000ms ease infinite alternate;
+}
+.component__rate__element__stars .second {
+  animation-delay: 100ms;
+}
+.component__rate__element__stars .third {
+  animation-delay: 200ms;
+}
+.component__rate__element__stars .fourth {
+  animation-delay: 300ms;
+}
+.component__rate__element__stars .fifth {
+  animation-delay: 400ms;
+}
+
+@keyframes grow-and-shrunk {
+  from {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+  to {
+    opacity: 0.5;
+    transform: scale(1);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
